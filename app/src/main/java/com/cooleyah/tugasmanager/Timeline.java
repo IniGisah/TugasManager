@@ -17,7 +17,7 @@ public class Timeline extends AppCompatActivity {
         setContentView(R.layout.activity_timeline);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnav);
-        //bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setSelectedItemId(R.id.timeline);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

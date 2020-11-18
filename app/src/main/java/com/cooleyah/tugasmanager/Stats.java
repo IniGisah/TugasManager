@@ -17,7 +17,7 @@ public class Stats extends AppCompatActivity {
         setContentView(R.layout.activity_stats);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnav);
-        //bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setSelectedItemId(R.id.stats);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
