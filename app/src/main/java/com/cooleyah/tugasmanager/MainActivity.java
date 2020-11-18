@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnav);
         //bottomNavigationView.setSelectedItemId(R.id.home);
-        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
                         break;
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.timeline:
                         Intent b = new Intent(MainActivity.this, Timeline.class);
                         startActivity(b);
+                        overridePendingTransition(0, 0);
                         finish();
                         break;
                     case R.id.settings:
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                         break;
                 }
+                return false;
             }
         });
     }
