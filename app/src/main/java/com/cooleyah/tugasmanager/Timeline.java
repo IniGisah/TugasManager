@@ -16,24 +16,29 @@ public class Timeline extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnav);
-        bottomNavigationView.setSelectedItemId(R.id.timeline);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnav);
+        //bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        Intent b = new Intent(Timeline.this, MainActivity.class);
+                        startActivity(b);
                         overridePendingTransition(0, 0);
                         finish();
                         break;
                     case R.id.stats:
-                        startActivity(new Intent(getApplicationContext(), Stats.class));
+                        Intent a = new Intent(Timeline.this, Stats.class);
+                        startActivity(a);
                         overridePendingTransition(0, 0);
                         finish();
                         break;
+                    case R.id.timeline:
+                        break;
                     case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(), Settings.class));
+                        Intent c = new Intent(Timeline.this, Settings.class);
+                        startActivity(c);
                         overridePendingTransition(0, 0);
                         finish();
                         break;

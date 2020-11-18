@@ -16,24 +16,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnav);
-        bottomNavigationView.setSelectedItemId(R.id.home);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnav);
+        //bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.home:
+                        break;
                     case R.id.stats:
-                        startActivity(new Intent(getApplicationContext(), Stats.class));
+                        Intent a = new Intent(MainActivity.this, Stats.class);
+                        startActivity(a);
                         overridePendingTransition(0, 0);
                         finish();
                         break;
                     case R.id.timeline:
-                        startActivity(new Intent(getApplicationContext(), Timeline.class));
-                        overridePendingTransition(0, 0);
+                        Intent b = new Intent(MainActivity.this, Timeline.class);
+                        startActivity(b);
                         finish();
                         break;
                     case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(), Settings.class));
+                        Intent c = new Intent(MainActivity.this, Settings.class);
+                        startActivity(c);
                         overridePendingTransition(0, 0);
                         finish();
                         break;

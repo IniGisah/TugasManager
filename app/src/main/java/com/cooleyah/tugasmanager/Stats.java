@@ -16,24 +16,29 @@ public class Stats extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnav);
-        bottomNavigationView.setSelectedItemId(R.id.stats);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnav);
+        //bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        Intent a = new Intent(Stats.this, MainActivity.class);
+                        startActivity(a);
                         overridePendingTransition(0, 0);
                         finish();
                         break;
+                    case R.id.stats:
+                        break;
                     case R.id.timeline:
-                        startActivity(new Intent(getApplicationContext(), Timeline.class));
+                        Intent b = new Intent(Stats.this, Timeline.class);
+                        startActivity(b);
                         overridePendingTransition(0, 0);
                         finish();
                         break;
                     case R.id.settings:
-                        startActivity(new Intent(getApplicationContext(), Settings.class));
+                        Intent c = new Intent(Stats.this, Settings.class);
+                        startActivity(c);
                         overridePendingTransition(0, 0);
                         finish();
                         break;

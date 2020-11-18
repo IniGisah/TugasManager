@@ -16,28 +16,32 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnav);
-        bottomNavigationView.setSelectedItemId(R.id.settings);
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnav);
+        //bottomNavigationView.setSelectedItemId(R.id.home);
         bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        Intent c = new Intent(Settings.this, MainActivity.class);
+                        startActivity(c);
                         overridePendingTransition(0, 0);
                         finish();
                         break;
                     case R.id.stats:
-                        startActivity(new Intent(getApplicationContext(), Stats.class));
+                        Intent a = new Intent(Settings.this, Stats.class);
+                        startActivity(a);
                         overridePendingTransition(0, 0);
                         finish();
                         break;
                     case R.id.timeline:
-                        startActivity(new Intent(getApplicationContext(), Timeline.class));
+                        Intent b = new Intent(Settings.this, Timeline.class);
+                        startActivity(b);
                         overridePendingTransition(0, 0);
                         finish();
                         break;
-
+                    case R.id.settings:
+                        break;
                 }
             }
         });
