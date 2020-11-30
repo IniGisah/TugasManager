@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/h_minggu"
+        android:title="Minggu" />
+    <item android:id="@+id/h_senin"
+        android:title="Senin" />
+    <item android:id="@+id/h_selasa"
+        android:title="Selasa" />
+    <item android:id="@+id/h_rabu"
+        android:title="Rabu" />
+    <item android:id="@+id/h_kamis"
+        android:title="Kamis" />
+    <item android:id="@+id/h_jumat"
+        android:title="Jumat" />
+    <item android:id="@+id/h_sabtu"
+        android:title="Sabtu" />
+</menu>

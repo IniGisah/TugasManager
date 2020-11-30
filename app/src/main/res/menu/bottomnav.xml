@@ -9,6 +9,10 @@
         android:id="@+id/stats"
         android:title="Stats" />
     <item
+        android:icon="@drawable/add_button"
+        android:id="@+id/add"
+        android:title="Add"/>
+    <item
         android:icon="@drawable/calendar_button"
         android:id="@+id/timeline"
         android:title="Timeline" />

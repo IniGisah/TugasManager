@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TugasManager</string>
+    <string name="textTitle">Tambah</string>
+    <string name="string_mandatory_field">Tolong di isi</string>
 </resources>
