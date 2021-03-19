@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tambahtugas_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JadwalAdd">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monsterrat_regular"
+                android:text="BUAT TUGAS"
+                android:textSize="18sp"
+                android:letterSpacing="0.1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:id="@+id/texthome"/>
+
+            <FrameLayout
+                android:layout_width="380dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/texthome"
+                android:id="@+id/backnama"
+                android:layout_gravity="center"
+                android:elevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="28dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Deskripsi"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="28sp"
+                        android:fontFamily="@font/monsterrat_bold" />
+                    <EditText
+                        android:textCursorDrawable="@null"
+                        android:layout_width="298dp"
+                        android:layout_height="49dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/inputnama"
+                        android:id="@+id/nama_tugas"
+                        android:layout_gravity="center"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:inputType="text"
+                        android:elevation="20dp"
+                        android:hint="Nama" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:text="Pelajaran"
+                        android:layout_gravity="left"
+                        android:textColor="#858585"
+                        android:textSize="17sp"
+                        android:layout_marginStart="50dp"
+                        android:fontFamily="@font/monsterrat_bold" />
+
+                    <Spinner
+                        android:layout_width="298dp"
+                        android:layout_height="49dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/inputnama"
+                        android:id="@+id/pelajaran_tugas"
+                        android:layout_gravity="center"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:elevation="20dp"
+                        android:hint="Pelajaran" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50dp"
+                            android:text="Selesai"
+                            android:layout_gravity="center"
+                            android:textColor="#858585"
+                            android:textSize="20sp"
+                            android:fontFamily="@font/monsterrat_bold" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/homeworkDetails_switchDone"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="50dp"
+                            android:checked="false"
+                            android:textAppearance="@android:style/TextAppearance.Material.Small"
+                            android:textStyle="bold"
+                            app:switchMinWidth="5dp"
+                            android:layout_weight="0.02" />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="380dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/inputnama"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/backnama"
+                android:id="@+id/backwaktu"
+                android:elevation="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="28dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Deadline"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="28sp"
+                        android:fontFamily="@font/monsterrat_bold" />
+                    <Button
+                        android:layout_width="298dp"
+                        android:layout_height="49dp"
+                        android:layout_marginTop="20dp"
+                        android:elevation="10dp"
+                        android:stateListAnimator="@null"
+                        android:background="@drawable/inputnama"
+                        android:layout_gravity="center"
+                        android:id="@+id/pelajaran_tanggal"
+                        android:inputType="date"
+                        android:ems="10"
+                        android:textColor="@color/black"
+                        android:hint="Tanggal"
+                        android:focusableInTouchMode="false" />
+
+
+                    <EditText
+                        android:id="@+id/tugas_jamakhir"
+                        android:layout_width="298dp"
+                        android:layout_height="49dp"
+                        android:layout_marginTop="30dp"
+                        android:elevation="10dp"
+                        android:background="@drawable/inputnama"
+                        android:layout_gravity="center"
+                        android:paddingStart="20dp"
+                        android:inputType="datetime"
+                        android:hint="Jam Selesai"
+                        android:focusableInTouchMode="false" />
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="380dp"
+                android:layout_height="350dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/inputnama"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/backnama"
+                android:elevation="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="28dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Catatan"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="28sp"
+                        android:fontFamily="@font/monsterrat_bold" />
+                    <EditText
+                        android:textCursorDrawable="@null"
+                        android:layout_width="298dp"
+                        android:gravity="left"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:elevation="10dp"
+                        android:background="@drawable/inputnama"
+                        android:layout_gravity="center"
+                        android:padding="20dp"
+                        android:id="@+id/tugas_catatan"
+                        android:inputType="textMultiLine"
+                        android:hint="Catatan tambahan"
+                        android:lines="10"
+                        android:maxLines="15"
+                        android:minLines="10"
+                        android:scrollbars="vertical"/>
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabexit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:backgroundTint="#ffABFEFF"
+        android:src="@drawable/cancel_button"
+        android:translationX="50dp"
+        android:translationZ="20dp"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabdelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:backgroundTint="#ffABFEFF"
+        android:src="@drawable/delete_button"
+        android:translationZ="20dp"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabyes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:backgroundTint="#ffABFEFF"
+        android:src="@drawable/check_button"
+        android:translationX="-50dp"
+        android:translationZ="20dp"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

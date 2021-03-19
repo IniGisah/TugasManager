@@ -9,10 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TugasManager">
-        <activity android:name=".JadwalAdd"></activity>
+        <activity android:name=".CatatanAdd" />
+        <activity android:name=".TugasAdd" />
+        <activity android:name=".activity.About" />
+        <activity android:name=".JadwalAdd" />
         <activity android:name=".activity.Stats" />
         <activity android:name=".activity.Timeline" />
-        <activity android:name=".activity.Settings" />
+        <activity android:name=".activity.More" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

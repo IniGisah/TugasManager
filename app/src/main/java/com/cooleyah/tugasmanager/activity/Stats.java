@@ -10,23 +10,44 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cooleyah.tugasmanager.CatatanAdd;
+import com.cooleyah.tugasmanager.GuiHelper;
 import com.cooleyah.tugasmanager.JadwalAdd;
 import com.cooleyah.tugasmanager.R;
+import com.cooleyah.tugasmanager.Tugas;
+import com.cooleyah.tugasmanager.TugasAdd;
+import com.cooleyah.tugasmanager.db.DatabaseHelper;
+import com.cooleyah.tugasmanager.db.DatabaseHelperImpl;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class Stats extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class Stats extends AppCompatActivity implements View.OnClickListener {
+
+    private View view;
+    private boolean tabIsToDo;
+    private ListView daftartugas;
+    private Tugas[] allHomeworkInList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
+
+        view = findViewById(R.id.stats);
+        daftartugas = findViewById(R.id.daftar_tugas);
+        tabIsToDo = true;
+        initGui();
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnav);
         bottomNavigationView.setSelectedItemId(R.id.stats);
@@ -37,7 +58,7 @@ public class Stats extends AppCompatActivity {
                     case R.id.home:
                         Intent a = new Intent(Stats.this, MainActivity.class);
                         startActivity(a);
-                        overridePendingTransition(0, 0);
+                        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                         finish();
                         break;
                     case R.id.stats:
@@ -45,13 +66,13 @@ public class Stats extends AppCompatActivity {
                     case R.id.timeline:
                         Intent b = new Intent(Stats.this, Timeline.class);
                         startActivity(b);
-                        overridePendingTransition(0, 0);
+                        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                         finish();
                         break;
                     case R.id.settings:
-                        Intent c = new Intent(Stats.this, Settings.class);
+                        Intent c = new Intent(Stats.this, More.class);
                         startActivity(c);
-                        overridePendingTransition(0, 0);
+                        overridePendingTransition(R.anim.fadein, R.anim.fadeout);
                         finish();
                         break;
                 }
@@ -67,7 +88,6 @@ public class Stats extends AppCompatActivity {
             }
 
             public void showPopupWindow(final View view) {
-
 
                 //Create a View object yourself through inflater
                 LayoutInflater inflater = (LayoutInflater) view.getContext().getSystemService(view.getContext().LAYOUT_INFLATER_SERVICE);
@@ -111,9 +131,9 @@ public class Stats extends AppCompatActivity {
                     public void onClick(View view) {
 
                         //As an example, display the message
-                        Toast.makeText(view.getContext(), "Not implemented yet, sorry....", Toast.LENGTH_SHORT).show();
-                        //Intent f =  new Intent(MainActivity.this, JadwalAdd.class);
-                        //startActivity(f);
+                        //Toast.makeText(view.getContext(), "Not implemented yet, sorry....", Toast.LENGTH_SHORT).show();
+                        Intent g =  new Intent(Stats.this, TugasAdd.class);
+                        startActivity(g);
                     }
                 });
 
@@ -123,9 +143,9 @@ public class Stats extends AppCompatActivity {
                     public void onClick(View view) {
 
                         //As an example, display the message
-                        Toast.makeText(view.getContext(), "Not implemented yet, sorry....", Toast.LENGTH_SHORT).show();
-                        //Intent f =  new Intent(MainActivity.this, JadwalAdd.class);
-                        //startActivity(f);
+                        //Toast.makeText(view.getContext(), "Not implemented yet, sorry....", Toast.LENGTH_SHORT).show();
+                        Intent h =  new Intent(Stats.this, CatatanAdd.class);
+                        startActivity(h);
                     }
                 });
 
@@ -142,5 +162,77 @@ public class Stats extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    private void initGui() {
+        GuiHelper.defineButtonOnClickListener(view, R.id.homework_buttonToDo, this);
+        GuiHelper.defineButtonOnClickListener(view, R.id.homework_buttonDone, this);
+
+        allHomeworkInList = changeTab();
+        defineHomeworkListOnClick(view);
+    }
+
+    private void defineHomeworkListOnClick(final View view) {
+        ListView homeworkList = view.findViewById(R.id.daftar_tugas);
+
+        homeworkList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+                Intent intent = new Intent(Stats.this, TugasAdd.class);
+                intent.putExtra("HomeworkID", allHomeworkInList[position].getId());
+                startActivity(intent);
+            }
+        });
+    }
+
+    private Tugas[] changeTab() {
+        if (tabIsToDo) {
+            GuiHelper.setColorToButton(view, R.id.homework_buttonToDo, 1f);
+            GuiHelper.setColorToButton(view, R.id.homework_buttonDone, 0.5f);
+            return fillListView();
+        } else {
+            GuiHelper.setColorToButton(view, R.id.homework_buttonToDo, 0.5f);
+            GuiHelper.setColorToButton(view, R.id.homework_buttonDone, 1f);
+            return fillListView();
+        }
+    }
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.homework_buttonToDo:
+                tabIsToDo = true;
+                allHomeworkInList = changeTab();
+                break;
+            case R.id.homework_buttonDone:
+                tabIsToDo = false;
+                allHomeworkInList = changeTab();
+                break;
+        }
+    }
+
+    private Tugas[] fillListView() {
+        DatabaseHelper dbHelper = new DatabaseHelperImpl(view.getContext());
+
+        ArrayList<String> homeworkStrings = new ArrayList<>();
+        ArrayList<Tugas> homeworkArrayList = new ArrayList<>();
+        int[] homeworkIndices = dbHelper.getIndices(DatabaseHelper.TABLE_TUGAS);
+
+        for (int homeworkIndex : homeworkIndices) {
+            Tugas homework = dbHelper.getHomeworkAtId(homeworkIndex);
+
+            if (tabIsToDo && !homework.isDone()) {
+                homeworkStrings.add(GuiHelper.extractGuiString(homework, this));
+                homeworkArrayList.add(homework);
+            } else if (!tabIsToDo && homework.isDone()) {
+                homeworkStrings.add(GuiHelper.extractGuiString(homework, this));
+                homeworkArrayList.add(homework);
+            }
+        }
+
+        //  if (homeworkStrings.size() != 0) {
+        GuiHelper.fillListViewFromArray(view, R.id.daftar_tugas, homeworkStrings.toArray(new String[0]));
+        //}
+
+        return homeworkArrayList.toArray(new Tugas[0]);
     }
 }

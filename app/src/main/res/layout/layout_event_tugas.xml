@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:background="@drawable/inputnama"
+        android:elevation="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/monsterrat_regular"
+                    android:text="Tugas"
+                    android:textColor="@color/black"
+                    android:alpha=".75"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/nama_pelajaran1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/monsterrat_regular"
+                    android:text="nama tugas"
+                    android:textColor="@color/black"
+                    android:alpha=".75"
+                    android:textSize="15sp"
+                    android:ellipsize="end"
+                    android:singleLine="true"/>
+
+                <TextView
+                    android:id="@+id/nama_pelajaran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="25dp"
+                    android:fontFamily="@font/monsterrat_bold"
+                    android:text="nama_pelajaran"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tugas_catatan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/monsterrat_regular"
+                    android:text="Catatan"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="14sp" />
+
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/deadline_tugas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/monsterrat_regular"
+                android:text="Tanggal Deadline"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="14sp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

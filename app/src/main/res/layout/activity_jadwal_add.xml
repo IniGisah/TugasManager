@@ -5,8 +5,7 @@
     android:id="@+id/tambahjadwal_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".JadwalAdd"
-    >
+    tools:context=".JadwalAdd">
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,6 +45,7 @@
                 android:textSize="28sp"
                 android:fontFamily="@font/monsterrat_bold" />
             <EditText
+                android:textCursorDrawable="@null"
                 android:layout_width="298dp"
                 android:layout_height="49dp"
                 android:layout_marginTop="20dp"
@@ -53,10 +53,10 @@
                 android:id="@+id/nama_pelajaran"
                 android:layout_gravity="center"
                 android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:inputType="text"
                 android:elevation="20dp"
-                android:hint="nama"
-                android:fontFamily="@font/bebas_neue_book" />
+                android:hint="Nama" />
         </LinearLayout>
 
     </FrameLayout>
@@ -70,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/backnama"
         android:id="@+id/backwaktu"
-        android:elevation="20dp">
+        android:elevation="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -93,12 +93,13 @@
                 android:background="@drawable/inputnama"
                 android:layout_gravity="center"
                 android:paddingStart="20dp"
-                android:id="@+id/pelajaran_hari"
+                android:id="@+id/pelajaran_tanggal"
                 android:inputType="date"
                 android:hint="Hari"
-                android:fontFamily="@font/bebas_neue_book"/>
+                android:focusableInTouchMode="false" />
 
             <EditText
+                android:textCursorDrawable="@null"
                 android:id="@+id/pelajaran_jamawal"
                 android:layout_width="298dp"
                 android:layout_height="49dp"
@@ -108,10 +109,11 @@
                 android:layout_gravity="center"
                 android:paddingStart="20dp"
                 android:inputType="number"
-                android:hint="jam awal"
-                android:fontFamily="@font/bebas_neue_book"/>
+                android:hint="Jam Mulai"
+                android:focusableInTouchMode="false" />
 
             <EditText
+                android:textCursorDrawable="@null"
                 android:id="@+id/pelajaran_jamakhir"
                 android:layout_width="298dp"
                 android:layout_height="49dp"
@@ -121,8 +123,8 @@
                 android:layout_gravity="center"
                 android:paddingStart="20dp"
                 android:inputType="datetime"
-                android:hint="jam akhir"
-                android:fontFamily="@font/bebas_neue_book"/>
+                android:hint="Jam Selesai"
+                android:focusableInTouchMode="false" />
         </LinearLayout>
 
     </FrameLayout>
@@ -140,6 +142,21 @@
         app:borderWidth="0dp"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabdelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/backwaktu"
+        android:layout_margin="15dp"
+        android:backgroundTint="#ffABFEFF"
+        android:src="@drawable/delete_button"
+        android:translationZ="20dp"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

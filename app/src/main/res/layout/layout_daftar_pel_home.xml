@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/dot"
+            android:layout_gravity="center"
+            app:tint="#B100FF"
+            android:translationZ="10dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/judul_pel_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Judul Pelajaran"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/waktu_pel_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jam Pelajaran"
+                android:textSize="12sp"
+                android:alpha=".50"/>
+
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@drawable/jam_back"
+                app:layout_constraintEnd_toStartOf="@+id/pelajaran_more"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/waktuawal_pel_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00:00"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"/>
+
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/pelajaran_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pelajaran_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

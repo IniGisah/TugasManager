@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tambahcatatan_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CatatanAdd">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/monsterrat_regular"
+                android:text="BUAT CATATAN"
+                android:textSize="18sp"
+                android:letterSpacing="0.1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:id="@+id/texthome"/>
+
+            <FrameLayout
+                android:layout_width="380dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/texthome"
+                android:id="@+id/backnama"
+                android:layout_gravity="center"
+                android:elevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="28dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Judul"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="28sp"
+                        android:fontFamily="@font/monsterrat_bold" />
+                    <EditText
+                        android:textCursorDrawable="@null"
+                        android:layout_width="298dp"
+                        android:layout_height="49dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/inputnama"
+                        android:id="@+id/judul_catatan"
+                        android:layout_gravity="center"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:inputType="text"
+                        android:elevation="20dp"
+                        android:hint="Judul" />
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="380dp"
+                android:layout_height="350dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/inputnama"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/backnama"
+                android:elevation="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="28dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Catatan"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="28sp"
+                        android:fontFamily="@font/monsterrat_bold" />
+                    <EditText
+                        android:textCursorDrawable="@null"
+                        android:gravity="left"
+                        android:paddingTop="15dp"
+                        android:layout_width="298dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:elevation="10dp"
+                        android:background="@drawable/inputnama"
+                        android:layout_gravity="center"
+                        android:padding="20dp"
+                        android:id="@+id/catatan_catatan"
+                        android:inputType="textMultiLine"
+                        android:hint="Catatan tambahan"
+                        android:lines="10"
+                        android:maxLines="15"
+                        android:minLines="10"
+                        android:scrollbars="vertical"/>
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabexit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:backgroundTint="#ffABFEFF"
+        android:src="@drawable/cancel_button"
+        android:translationX="50dp"
+        android:translationZ="20dp"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabdelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:backgroundTint="#ffABFEFF"
+        android:src="@drawable/delete_button"
+        android:translationZ="20dp"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabyes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:backgroundTint="#ffABFEFF"
+        android:src="@drawable/check_button"
+        android:translationX="-50dp"
+        android:translationZ="20dp"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
