@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private JadwalPelajaran[] allSubjectsInList;
     boolean gaadapel;
     boolean gaadatugas;
+    PopupWindow popupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 boolean focusable = true;
 
                 //Create a window with our parameters
-                final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+                popupWindow = new PopupWindow(popupView, width, height, focusable);
 
                 //Set the location of the window on the screen
                 popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
@@ -415,5 +416,15 @@ public class MainActivity extends AppCompatActivity {
         ViewGroup.LayoutParams params = listView.getLayoutParams();
         params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
         listView.setLayoutParams(params);
+    }
+
+    // Function for back button to close popup window when it showing
+    @Override
+    public void onBackPressed() {
+        if (popupWindow.isShowing()) {
+            popupWindow.dismiss();
+        } else {
+            super.onBackPressed();
+        }
     }
 }

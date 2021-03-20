@@ -14,11 +14,11 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:src="@drawable/dot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/point"
             android:layout_gravity="center"
-            app:tint="#B100FF"
+            android:layout_marginStart="8dp"
             android:translationZ="10dp"/>
 
         <LinearLayout
